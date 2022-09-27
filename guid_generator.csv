@@ -1,0 +1,27 @@
+ID,FIRSTNAME,MIDDLENAME,LASTNAME,MOB,DOB,YOB,COB,SEX,SUBJECTHASMIDDLENAME,Race,Ethnicity
+1,Hyejoo,,Kang,1,7,1995,Daegu,F,No,Asian,Non-Hispanic
+2,Rik,,Sengupta,9,2,1989,Kolkata,M,No,Asian,Non-Hispanic
+3,Vinita,,Hissaria,9,22,1993,Kolkata,F,No,Asian,Non-Hispanic
+4,Lakshmi Manasa,,Kalanadhabhatta,1,18,1997,Vishakhapattnam,F,No,Asian,Non-Hispanic
+5,Shreya,,Thakkar,10,13,1997,Kutchchh,F,No,Asian,Non-Hispanic
+6,Aanchal,,Setia,6,9,1997,Delhi,F,No,Asian,Non-Hispanic
+7,Sandarsh,,Pandey,10,17,1994,India,M,No,Asian,Non-Hispanic
+8,Sohini,,Banerjee,11,17,1989,Kolkata,F,No,Asian,Non-Hispanic
+9,Christina,Marie,Bertrand,9,1,1989,Springfield,F,Yes,White,Non-Hispanic
+10,Yelim,,Hong,1,1,1995,South Korea,F,No,Asian,Non-Hispanic
+11,Tian,Tim,Xia,7,14,1997,Guangdong,M,Yes,did not indicate,Non-Hispanic
+12,Andrew,E,Zane,10,25,1992,Redding,M,Yes,White,Non-Hispanic
+13,Victoria,Rose,Vizzini,11,7,1998,New York,F,Yes,White,Non-Hispanic
+14,Hector,Joel,Sosa,7,13,1999,Queens,M,Yes,did not indicate,Non-Hispanic
+15,Ishita,,Panda,2,26,1998,India,F,No,Asian,Non-Hispanic
+16,Tejas,,Panambur,9,15,1996,Bangalore,M,No,Asian,Non-Hispanic
+17,Jaji,,Pamarthi,8,26,1996,Vijayawada,F,No,Asian,Non-Hispanic
+18,Sean,Patrick,Conway,6,11,1995,Fond du Lac,M,Yes,White,Non-Hispanic
+19,Lauren,Richelle,Gatewood,12,28,1991,Indio,F,Yes,White,Non-Hispanic
+20,Ramiro Eduardo,,Rea Reyes,1,5,1992,Lagos de Moreno,M,No,did not indicate,Hispanic
+21,Apoorva Pramod,,Hungund,5,25,1995,India,F,No,Asian,Non-Hispanic
+22,Johanny,N,Castillo,1,12,1998,Providence,F,Yes,White,Hispanic
+23,Aisling,Irene,Finnegan,3,7,2001,New York,F,Yes,White,did not indicate
+24,Elijah,B'Shara,Feldman,9,17,2000,Boston,M,Yes,White,did not indicate
+25,Prateek,,Mantri,4,23,1991,Jaipur,M,No,did not indicate,Non-Hispanic
+26,Jenna,Lea,Croteau,12,17,1997,Springfield,F,Yes,White,Non-Hispanic
