@@ -56,18 +56,18 @@ def get_events_file(subject_id, run):
                                                 })
     
 #     Uncomment below to separate early and late preparation periods. 
-    late_prep_onset = (events[events.trial_type.str.contains('prep')]['onset'] + events[events.trial_type.str.contains('prep')]['duration']/2).values
-    late_prep_duration = (events[events.trial_type.str.contains('prep')]['duration']/2).values
-    late_prep_trial_type = 'late_'+ events[events.trial_type.str.contains('prep')]['trial_type'].values
-    late_prep_df = pd.DataFrame({'onset': late_prep_onset, 
-                            'trial_type': late_prep_trial_type, 
-                            'duration': late_prep_duration
-                            })
-    events.loc[events.trial_type.str.contains('prep'), 'duration'] = events.loc[events.trial_type.str.contains('prep'), 'duration']/2
-    events = events.append(late_prep_df).reset_index().drop('index', axis = 1)
+#     late_prep_onset = (events[events.trial_type.str.contains('prep')]['onset'] + events[events.trial_type.str.contains('prep')]['duration']/2).values
+#     late_prep_duration = (events[events.trial_type.str.contains('prep')]['duration']/2).values
+#     late_prep_trial_type = 'late_'+ events[events.trial_type.str.contains('prep')]['trial_type'].values
+#     late_prep_df = pd.DataFrame({'onset': late_prep_onset, 
+#                             'trial_type': late_prep_trial_type, 
+#                             'duration': late_prep_duration
+#                             })
+#     events.loc[events.trial_type.str.contains('prep'), 'duration'] = events.loc[events.trial_type.str.contains('prep'), 'duration']/2
+#     events = events.append(late_prep_df).reset_index().drop('index', axis = 1)
     
 #     Uncomment to do trial_wise PREP events
-    events.loc[events.trial_type.str.contains('prep'), 'trial_type'] = events[events.trial_type.str.contains('prep')]['trial_type'].values + '_'+ np.tile(np.arange(40), 2).astype(str)
+    events.loc[events.trial_type.str.contains('prep'), 'trial_type'] = events[events.trial_type.str.contains('prep')]['trial_type'].values + '_'+ np.arange(40).astype(str)
 
     #Uncomment to do trial_wise MOVEMENT events
 #     events.loc[events.trial_type.str.startswith('movement'), 'trial_type'] = events[events.trial_type.str.startswith('movement')]['trial_type'].values + '_'+ np.arange(20).astype(str)
@@ -162,8 +162,8 @@ def save_cont_maps(subject_id):
     for run in range(1, 11):
         run_no = str(run).zfill(2)
         #Modify paths based on the type of beta maps
-        if not os.path.exists(f'analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/prep_late_prep'):
-            os.makedirs(f'analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/prep_late_prep')
+        if not os.path.exists(f'analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/'):
+            os.makedirs(f'analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/')
         z, l, s = compute_no_diff_contrasts(subject_id, glms, run)
 
         prep_45 = []
@@ -173,11 +173,11 @@ def save_cont_maps(subject_id):
         prep = {}
 
         
-        late_prep_45 = []
-        late_prep_99 = []
-        late_prep_153 = []
-        late_prep_207 = []
-        late_prep = {}
+#         late_prep_45 = []
+#         late_prep_99 = []
+#         late_prep_153 = []
+#         late_prep_207 = []
+#         late_prep = {}
 
         
 #         move_45 = []
@@ -197,15 +197,15 @@ def save_cont_maps(subject_id):
             elif l[i].startswith('207'):
                 prep_207.append(z[i])
                 
-        for i in range(len(l)):
-            if l[i].startswith('late_45'):
-                late_prep_45.append(z[i])
-            elif l[i].startswith('late_99'):
-                late_prep_99.append(z[i])
-            elif l[i].startswith('late_153'):
-                late_prep_153.append(z[i])
-            elif l[i].startswith('late_207'):
-                late_prep_207.append(z[i])
+#         for i in range(len(l)):
+#             if l[i].startswith('late_45'):
+#                 late_prep_45.append(z[i])
+#             elif l[i].startswith('late_99'):
+#                 late_prep_99.append(z[i])
+#             elif l[i].startswith('late_153'):
+#                 late_prep_153.append(z[i])
+#             elif l[i].startswith('late_207'):
+#                 late_prep_207.append(z[i])
 
 #         for i in range(len(l)):
 #             if l[i].startswith("movement"):
@@ -223,10 +223,10 @@ def save_cont_maps(subject_id):
         prep['153'] = image.concat_imgs(prep_153)
         prep['207'] = image.concat_imgs(prep_207)
 
-        late_prep['45'] = image.concat_imgs(late_prep_45)
-        late_prep['99'] = image.concat_imgs(late_prep_99)
-        late_prep['153'] = image.concat_imgs(late_prep_153)
-        late_prep['207'] = image.concat_imgs(late_prep_207)
+#         late_prep['45'] = image.concat_imgs(late_prep_45)
+#         late_prep['99'] = image.concat_imgs(late_prep_99)
+#         late_prep['153'] = image.concat_imgs(late_prep_153)
+#         late_prep['207'] = image.concat_imgs(late_prep_207)
         
         
 #         move['45'] = image.concat_imgs(move_45)
@@ -235,10 +235,10 @@ def save_cont_maps(subject_id):
 #         move['207'] = image.concat_imgs(move_207)
 
         for i in prep.keys():
-            prep[i].to_filename(f"analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/prep_late_prep/prep_{i}.nii.gz")
+            prep[i].to_filename(f"analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/prep_{i}.nii.gz")
 
-        for i in late_prep.keys():
-            late_prep[i].to_filename(f"analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/prep_late_prep/late_prep_{i}.nii.gz")
+#         for i in late_prep.keys():
+#             late_prep[i].to_filename(f"analyses_results/sub-{subject_id}/beta_maps/trial_level/run-{run_no}/prep_late_prep/late_prep_{i}.nii.gz")
 
             
 #         for i in move.keys():
